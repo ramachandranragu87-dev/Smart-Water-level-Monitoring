@@ -1,0 +1,420 @@
+/* ===========================================
+   SMART MONITOR DASHBOARD
+   Professional Industrial Theme
+=========================================== */
+
+:root {
+  --bg: #08111f;
+  --surface: #111c2f;
+  --surface2: #16233a;
+  --card: #18263f;
+  --border: #27415f;
+
+  --primary: #00bfff;
+  --secondary: #4ade80;
+  --danger: #ff5c5c;
+  --warning: #facc15;
+  --purple: #8b5cf6;
+  --text: #ffffff;
+  --text2: #9fb2d0;
+
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #07111d, #0d1628, #101f35);
+  font-family: "Segoe UI", sans-serif;
+  color: var(--text);
+}
+
+/* ========================= */
+
+.dashboard {
+  min-height: 100vh;
+  padding: 35px;
+}
+
+/* ========================= */
+
+.dashboard-title {
+  font-size: 34px;
+  font-weight: 700;
+
+  margin-bottom: 30px;
+
+  color: white;
+}
+
+.dashboard-subtitle {
+  color: var(--text2);
+
+  margin-top: 8px;
+
+  margin-bottom: 35px;
+}
+
+/* ========================= */
+
+.top-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 28px;
+}
+
+/* ========================= */
+
+.card {
+  background: rgba(22, 35, 58, 0.88);
+
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 22px;
+
+  padding: 28px;
+
+  transition: 0.35s;
+
+  box-shadow: var(--shadow);
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+.card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 5px;
+
+  background: linear-gradient(90deg, #00bfff, #4ade80);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+
+  border-color: #00bfff;
+
+  box-shadow:
+    0 0 15px rgba(0, 191, 255, 0.35),
+    0 15px 45px rgba(0, 0, 0, 0.5);
+}
+
+/* ========================= */
+
+.card-title {
+  font-size: 22px;
+
+  margin-bottom: 25px;
+
+  font-weight: 600;
+}
+
+/* ========================= */
+
+.gauge {
+  width: 220px;
+
+  margin: auto;
+}
+
+/* ========================= */
+
+.water-wrapper {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-direction: column;
+}
+
+/* ========================= */
+
+.water-tank {
+  width: 130px;
+
+  height: 300px;
+
+  border: 5px solid white;
+
+  border-radius: 22px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #0d1c2d;
+
+  box-shadow:
+    inset 0 0 18px rgba(255, 255, 255, 0.08),
+    0 0 20px rgba(0, 191, 255, 0.15);
+}
+
+.water {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 100%;
+
+  background: linear-gradient(180deg, #3bc9ff, #2563eb);
+
+  transition: height 1s;
+
+  animation: wave 4s infinite linear;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(-2px);
+  }
+
+  50% {
+    transform: translateX(2px);
+  }
+
+  100% {
+    transform: translateX(-2px);
+  }
+}
+
+.water-value {
+  position: absolute;
+
+  width: 100%;
+
+  text-align: center;
+
+  top: 46%;
+
+  font-size: 30px;
+
+  font-weight: bold;
+
+  color: white;
+
+  text-shadow: 0 0 12px black;
+}
+
+/* ========================= */
+
+.graph-card {
+  margin-top: 35px;
+
+  background: rgba(22, 35, 58, 0.88);
+
+  border-radius: 22px;
+
+  padding: 28px;
+
+  box-shadow: var(--shadow);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  height: 430px;
+}
+
+/* ========================= */
+
+.bottom-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 25px;
+
+  margin-top: 35px;
+}
+
+/* ========================= */
+
+.status-card {
+  background: linear-gradient(160deg, #17263d, #13233b);
+
+  border-radius: 18px;
+
+  padding: 25px;
+
+  box-shadow: var(--shadow);
+
+  transition: 0.3s;
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.status-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 0 18px rgba(0, 191, 255, 0.25);
+}
+
+.status-title {
+  color: #b7c7df;
+
+  margin-bottom: 18px;
+
+  font-size: 16px;
+}
+
+.status-value {
+  font-size: 34px;
+
+  font-weight: bold;
+}
+
+/* ========================= */
+
+.success {
+  color: #4ade80;
+}
+
+.warning {
+  color: #facc15;
+}
+
+.danger {
+  color: #ff5c5c;
+}
+
+.primary {
+  color: #00bfff;
+}
+
+/* ========================= */
+
+.sensor-value {
+  text-align: center;
+
+  margin-top: 20px;
+
+  font-size: 18px;
+
+  color: #d8e3f4;
+}
+
+/* ========================= */
+
+.live-indicator {
+  width: 14px;
+
+  height: 14px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow: 0 0 12px #22c55e;
+
+  animation: pulse 1.2s infinite;
+
+  display: inline-block;
+
+  margin-right: 10px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.2);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.9);
+
+    opacity: 0.8;
+  }
+}
+
+/* ========================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1628;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+
+  border-radius: 20px;
+}
+
+/* ========================= */
+
+@media (max-width: 900px) {
+  .dashboard {
+    padding: 20px;
+  }
+
+  .dashboard-title {
+    font-size: 28px;
+  }
+
+  .graph-card {
+    height: 350px;
+  }
+
+  .water-tank {
+    height: 240px;
+
+    width: 110px;
+  }
+
+  .gauge {
+    width: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard {
+    padding: 15px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .graph-card {
+    padding: 18px;
+  }
+
+  .status-value {
+    font-size: 28px;
+  }
+}

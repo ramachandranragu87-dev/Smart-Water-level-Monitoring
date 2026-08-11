@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Dark Background Gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <!-- Electric Cyan-Blue Gradient -->
+    <linearGradient id="electricGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <!-- Glow Effect -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Container Box -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGradient)" stroke="#334155" stroke-width="12"/>
+
+  <!-- Outer Tech Ring -->
+  <circle cx="256" cy="256" r="170" fill="none" stroke="#1e293b" stroke-width="24" />
+  <circle cx="256" cy="256" r="170" fill="none" stroke="url(#electricGradient)" stroke-width="24" 
+          stroke-dasharray="700 200" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Telemetry Dots / Nodes -->
+  <circle cx="256" cy="86" r="12" fill="#38bdf8" />
+  <circle cx="426" cy="256" r="12" fill="#3b82f6" />
+  <circle cx="256" cy="426" r="12" fill="#3b82f6" />
+
+  <!-- Center Lightning Bolt Icon -->
+  <path d="M280 96 L160 272 H256 L232 416 L352 240 H256 Z" 
+        fill="url(#electricGradient)" 
+        stroke="#ffffff" 
+        stroke-width="4"
+        stroke-linejoin="round"
+        filter="url(#glow)"/>
+</svg>
